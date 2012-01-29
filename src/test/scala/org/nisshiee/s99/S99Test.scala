@@ -69,4 +69,80 @@ trait S99Test extends Spec with ShouldMatchers {
       answer.encode(list) should be(expected)
     }
   }
+
+  describe("P11") {
+    it("should find Modified run-length encoding") {
+      val list = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+      val expected: List[Any] = List((4, 'a), 'b, (2, 'c), (2, 'a), 'd, (4, 'e))
+      answer.encodeModified(list) should be(expected)
+    }
+  }
+
+  describe("P12") {
+    it("should decode a run-length encoded list") {
+      val list = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
+      val expected = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+      answer.decode(list) should be(expected)
+    }
+  }
+
+  describe("P13") {
+    it("should find Run-length encoding of a list directly") {
+      val list = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+      val expected = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
+      answer.encode(list) should be(expected)
+    }
+  }
+
+  describe("P14") {
+    it("should duplicate the elements of a list") {
+      val list = List('a, 'b, 'c, 'c, 'd)
+      val expected = List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
+      answer.duplicate(list) should be(expected)
+    }
+  }
+
+  describe("P15") {
+    it("should duplicate the elements of a list a given number of times") {
+      val list = List('a, 'b, 'c, 'c, 'd)
+      val expected = List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd)
+      answer.duplicateN(3, list) should be(expected)
+    }
+  }
+
+  describe("P16") {
+    it("should drop every Nth element from a list") {
+      val list = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
+      val expected = List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
+      answer.drop(3, list) should be(expected)
+    }
+  }
+
+  describe("P17") {
+    it("should split a list into two parts") {
+      val list = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
+      val expected = (List('a, 'b, 'c), List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
+      answer.split(3, list) should be(expected)
+    }
+  }
+
+  describe("P18") {
+    it("should extract a slice from a list") {
+      val list = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
+      val expected = List('d, 'e, 'f, 'g)
+      answer.slice(3, 7, list) should be(expected)
+    }
+  }
+
+  describe("P19") {
+    it("should rotate a list N places to the left") {
+      val list = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
+
+      val expected1 = List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c)
+      answer.rotate(3, list) should be(expected1)
+
+      val expected2 = List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+      answer.rotate(-2, list) should be(expected2)
+    }
+  }
 }
