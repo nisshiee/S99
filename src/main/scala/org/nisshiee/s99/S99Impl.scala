@@ -4,3 +4,4 @@ object S99Impl
   extends S99
   with S99Impl0
   with S99Impl1
+  with S99Impl2

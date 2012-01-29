@@ -145,4 +145,10 @@ trait S99Test extends Spec with ShouldMatchers {
       answer.rotate(-2, list) should be(expected2)
     }
   }
+
+  describe("P20") {
+    it("should remove the Kth element from a list") {
+      answer.removeAt(1, List('a, 'b, 'c, 'd)) should be((List('a, 'c, 'd), 'b))
+    }
+  }
 }

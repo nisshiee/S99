@@ -163,4 +163,12 @@ trait S99 {
    * @return
    */
   def rotate[A](n: Int, list: List[A]): List[A]
+
+  /**
+   * P20 (*) Remove the Kth element from a list.
+   * @param k
+   * @param list
+   * @return
+   */
+  def removeAt[A](k: Int, list: List[A]): (List[A], A)
 }
