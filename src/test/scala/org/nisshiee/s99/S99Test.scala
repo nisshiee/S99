@@ -90,7 +90,7 @@ trait S99Test extends Spec with ShouldMatchers {
     it("should find Run-length encoding of a list directly") {
       val list = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
       val expected = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
-      answer.encode(list) should be(expected)
+      answer.encodeDirect(list) should be(expected)
     }
   }
 
