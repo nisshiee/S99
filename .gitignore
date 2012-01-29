@@ -13,21 +13,15 @@ syntax: glob
 .project
 .manager
 .scala_dependencies
+.cache
 
 # idea
 .idea
 *.iml
 
-# building
-target
-build
-null
-tmp*
-temp*
-dist
-test-output
-build.log
-.cache
+# sbt building
+target/
+project/boot/
 
 # other scm
 .svn
@@ -37,6 +31,3 @@ build.log
 # switch to regexp syntax.
 #  syntax: regexp
 #  ^\.pc/
-
-#SHITTY output not in target directory
-build.log
