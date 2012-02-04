@@ -13,4 +13,13 @@ trait S99Impl2 extends S99 {
         (h :: tail, elem)
       }
     }
+
+  def insertAt[A](a: A, n: Int, list: List[A]): List[A] =
+    (n, list) match {
+      case (0, l) => a :: l
+      case (_, Nil) => throw new IllegalArgumentException
+      case (n, h :: t) => h :: insertAt(a, n - 1, t)
+    }
+
+  def range(a: Int, b: Int): List[Int] = (a to b) |> (_.toList)
 }

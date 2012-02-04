@@ -171,4 +171,21 @@ trait S99 {
    * @return
    */
   def removeAt[A](k: Int, list: List[A]): (List[A], A)
+
+  /**
+   * P21 (*) Insert an element at a given position into a list.
+   * @param a
+   * @param n
+   * @param list
+   * @return
+   */
+  def insertAt[A](a: A, n: Int, list: List[A]): List[A]
+
+  /**
+   * P22 (*) Create a list containing all integers within a given range.
+   * @param a
+   * @param b
+   * @return
+   */
+  def range(a: Int, b: Int): List[Int]
 }

@@ -151,4 +151,16 @@ trait S99Test extends Spec with ShouldMatchers {
       answer.removeAt(1, List('a, 'b, 'c, 'd)) should be((List('a, 'c, 'd), 'b))
     }
   }
+
+  describe("P21") {
+    it("should insert an element at a given position into a list") {
+      answer.insertAt('new, 1, List('a, 'b, 'c, 'd)) should be(List('a, 'new, 'b, 'c, 'd))
+    }
+  }
+
+  describe("P22") {
+    it("should create a list conataining all integers within a given range") {
+      answer.range(4, 9) should be(List(4, 5, 6, 7, 8, 9))
+    }
+  }
 }
